@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+  
+  <div class="float-end me-4">
+    <div class="cardio">
+      <p class="time-text"><span>11:11</span><span class="time-sub-text">PM</span></p>
+      <p class="day-text">Wednesday, June 15th</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" stroke-width="0" fill="currentColor" stroke="currentColor" class="moon"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path><path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path></svg>
+      </div>
+  </div>
+
+    <div>
+      <div class="cards">
+        <label for="file" class="file-upload-label">
+            <div class="file-upload-design">
+              <svg viewBox="0 0 640 512" height="1em">
+                <path
+                  d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-217c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l39-39V392c0 13.3 10.7 24 24 24s24-10.7 24-24V257.9l39 39c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-80-80c-9.4-9.4-24.6-9.4-33.9 0l-80 80z"
+                ></path>
+              </svg>
+              <p >Drag and Drop</p>
+              <p>or</p>
+              <span class="browse-button text-center" >Browse file</span>
+            </div>
+            <input id="file" type="file" />
+          </label>
+
+        <div style="z-index: 1; margin-top: 20px;">
+            <input class="input input-alt" placeholder="Type something intelligent" style="height: 20px;" type="text">
+            <span class="input-border input-border-alt"></span>
+        </div>
+    
+    </div>
+
+    
+    </div>
+    <script type="module">
+    
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      import { GoogleAuthProvider, getAuth,signInWithPopup  } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyB6fTspVHunZqiUmm8M9j3n1jm_Bb3fS4I",
+        authDomain: "titanic-f8d20.firebaseapp.com",
+        databaseURL: "https://titanic-f8d20-default-rtdb.firebaseio.com",
+        projectId: "titanic-f8d20",
+        storageBucket: "titanic-f8d20.appspot.com",
+        messagingSenderId: "791235072284",
+        appId: "1:791235072284:web:a721b6b609d7dae1916ad9",
+        measurementId: "G-C7MTZN9ZMH"
+      };
+    
+      
+      const provider = new GoogleAuthProvider();
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+        
+      signInWithPopup(auth, provider)
+  .then((result) => {
+    const user = result.user;
+    console.log(user);
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+  });
+    </script>
+</body>
+</html>
